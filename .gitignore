@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build and test output
+dist/
+coverage/
+*.tsbuildinfo
+target/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Local runs
+.omni-l10n/
+.l10n-work/
+*.log
+*.orig
+*.rej
+
+# Secrets and keys
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.sig
+
+# Editor and OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.swp

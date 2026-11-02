@@ -1,0 +1,42 @@
+version: 1
+
+# Source language of the project. Use "auto" only when the detector is configured.
+source: zh-CN
+targets: [en]
+
+include:
+  - "src/**/*.{ts,tsx,js,jsx,vue,svelte}"
+  - "app/**/*.{ts,tsx}"
+  - "templates/**/*.{gohtml,html}"
+  - "locales/**/*.{json,yaml,yml}"
+
+exclude:
+  - "**/*.test.*"
+  - "**/*.spec.*"
+  - "**/fixtures/**"
+  - "**/__tests__/**"
+  - "**/*.stories.*"
+  - "docs/**"
+  - "scripts/**"
+
+# in-place: rewrite UI strings where they are
+# locale-files: translate missing keys in existing locale resources
+mode: in-place
+
+# Always open a pull request; never push directly.
+review: pr
+
+confidence:
+  auto_apply: high
+  review: [medium]
+  skip: [low]
+
+glossary: l10n/glossary.json
+tm: l10n/tm.json
+
+mt:
+  endpoint: env:L10N_ENDPOINT
+  model: env:L10N_MODEL
+  batch_size: 30
+  timeout_ms: 60000
+  max_retries: 2
